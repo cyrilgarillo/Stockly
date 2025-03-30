@@ -32,11 +32,11 @@ export default function Nav() {
   
 
   const handleScrollTo = (section: string) => {
-    let header: HTMLElement = document.querySelector('#header')!;
-    let offset = header.offsetHeight;
-    let targetEl: HTMLElement = document.querySelector('#' + section)!;
+    const header: HTMLElement = document.querySelector('#header')!;
+    const offset = header.offsetHeight;
+    const targetEl: HTMLElement = document.querySelector('#' + section)!;
     if (pathname === '/') {
-      let elementPosition = targetEl.offsetTop;
+      const elementPosition = targetEl.offsetTop;
       window.scrollTo({
         top: elementPosition - offset,
         behavior: 'smooth',
@@ -48,13 +48,13 @@ export default function Nav() {
   
 
   const handleNavActive = () => {
-    let position = scrollY + 200;
+    const position = scrollY + 200;
   
     // nav add and remove class active
     setNavList(
       navList.map(nav => {
         nav.active = false;
-        let targetSection: HTMLElement = document.querySelector(
+        const targetSection: HTMLElement = document.querySelector(
           '#' + nav.target
         )!;
   

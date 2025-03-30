@@ -1,9 +1,13 @@
+// src/app/components/AppBtn.tsx
 import React from 'react';
 import './appBtn.css';
 
 export default function AppBtn({ name }: { name: string }) {
   const handleScrollTo = (section: string) => {
-    // go to booking a table section
+    const target = document.getElementById(section);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
