@@ -21,7 +21,7 @@ export default function About() {
           <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
             <h3>
               Voluptatem dignissimos provident quasi corporis voluptates sit
-              assumenda.
+              assumendatetst.
             </h3>
             <p className="fst-italic">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
