@@ -1,4 +1,4 @@
-// src/app/components/Nav.tsx
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { navs } from '../data/data';
