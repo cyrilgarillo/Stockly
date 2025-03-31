@@ -7,35 +7,34 @@ export default function TopBar() {
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      setScroll(window.scrollY);
-    });
-
-    return () => {
-      window.removeEventListener('scroll', () => {
+    if (typeof window !== 'undefined') {
+      const handleScroll = () => {
         setScroll(window.scrollY);
-      });
-    };
-  }, [scroll]);
+      };
 
+      window.addEventListener('scroll', handleScroll);
 
-return (
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, []); // Nur einmal bei Mount
+
+  return (
     <div
       id="topbar"
       className={`d-flex align-items-center fixed-top ${
-        scroll > 100 ? 'topbar-scrolled' : undefined
+        scroll > 100 ? 'topbar-scrolled' : ''
       }`}
     >
       <div className="container d-flex justify-content-center justify-content-md-between">
         <div className="contact-info d-flex align-items-center">
-          
-            <span>SMI</span>
-        
-          <i className="bi  d-flex align-items-center ms-4">
+          <span>SMI</span>
+          <i className="bi d-flex align-items-center ms-4">
             <span> S&P500</span>
           </i>
         </div>
-  
+
         <div className="languages d-none d-md-flex align-items-center">
           <ul>
             <li>DE</li>
