@@ -18,13 +18,14 @@ export default function Booking() {
 
   const [text, setText] = useState(intialState);
 
-  const handleTextChange = (e: Event | any) => {
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setText({ ...text, [name]: value, validate: '' });
   };
-  
-  const handleSubmitBooking = async (e: Event | any) => {
+
+  const handleSubmitBooking = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     // simple form validation
     if (
       text.name === '' ||
@@ -35,54 +36,39 @@ export default function Booking() {
       setText({ ...text, validate: 'incomplete' });
       return;
     }
-  
-  // POST request sent
-try {
-    const response = await fetch('http://localhost:3000/api/booking', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(text),
-    });
-  
-    setText({ ...text, validate: 'loading' });
-  
-    const result = await response.json();
-    if (result) {
-      setText({ ...text, validate: 'success' });
-      // console.log('Success:', result);
-    }
-  } catch (error) {
-    setText({ ...text, validate: 'error' });
-    // console.error('Error:', error);
-  }};
 
+    // simulate request
+    setText({ ...text, validate: 'loading' });
+
+    setTimeout(() => {
+      setText({ ...text, validate: 'success' });
+    }, 1000);
+  };
 
   return (
     <section id="book-a-table" className="book-a-table">
       <div className="container" data-aos="fade-up">
         <SectionTitle title="Profil bestimmen" subtitle="Risk Profile" />
-  
+
         <form
           onSubmit={handleSubmitBooking}
           className="booking-form"
           data-aos="fade-up"
           data-aos-delay="100"
         >
- <div className="row">
-  <div className="col-lg-4 col-md-6 form-group">
-    <input
-      type="text"
-      name="name"
-      value={text.name}
-      className="form-control"
-      placeholder="Your Name"
-      onChange={handleTextChange}
-    />
-  </div>
-</div>
-<div className="col-lg-4 col-md-6 form-group mt-3 mt-md0">
+          <div className="row">
+            <div className="col-lg-4 col-md-6 form-group">
+              <input
+                type="text"
+                name="name"
+                value={text.name}
+                className="form-control"
+                placeholder="Your Name"
+                onChange={handleTextChange}
+              />
+            </div>
+
+            <div className="col-lg-4 col-md-6 form-group mt-3 mt-md0">
               <input
                 type="email"
                 name="email"
@@ -134,6 +120,7 @@ try {
                 onChange={handleTextChange}
               />
             </div>
+          </div>
 
           <div className="form-group mt-3">
             <textarea
@@ -147,30 +134,26 @@ try {
           </div>
 
           <div className="mb-3">
-  {text.validate === 'loading' && (
-    <div className="loading">Send Booking</div>
-  )}
-  {text.validate === 'incomplete' && (
-    <div className="error-message">
-      Please fill in all above details for booking a table
-    </div>
-  )}
-  {text.validate === 'success' && (
-    <div className="sent-message">
-      Your booking request was sent. We will call back or send an
-      Email to confirm your reservation. Thank you!
-    </div>
-  )}
-  {text.validate === 'error' && (
-    <div className="error-message">Server Error</div>
-  )}
-</div>
+            {text.validate === 'loading' && (
+              <div className="loading">Send Booking...</div>
+            )}
+            {text.validate === 'incomplete' && (
+              <div className="error-message">
+                Please fill in all required fields for the booking.
+              </div>
+            )}
+            {text.validate === 'success' && (
+              <div className="sent-message">
+                Your booking request was sent. We will contact you shortly.
+              </div>
+            )}
+          </div>
 
-<div className="text-center">
-  <button type="submit">Book a Table</button>
-</div>
-</form>
-</div>
-</section>
-);
+          <div className="text-center">
+            <button type="submit">Book a Table</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
 }
