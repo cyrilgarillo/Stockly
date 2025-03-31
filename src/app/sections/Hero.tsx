@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import Glightbox from 'glightbox';
+import Glightbox from 'glightbox'; // korrekt importiert
 import './hero.css';
 import HeroBtn from '../components/HeroBtn';
 
 export default function Hero() {
   useEffect(() => {
-    new Glightbox({
+    Glightbox({ // 👈 ohne "new"
       selector: '.glightbox',
     });
   }, []);
@@ -25,7 +25,7 @@ export default function Hero() {
               Why you should Invest <span>In Stocks</span>
             </h1>
             <h2>Alles was du für den Einstig wissen wolltest!</h2>
-  
+
             <div className="btns">
               <HeroBtn name="ButtonName" target="menu" />
               <HeroBtn name="ButtonName" target="book-a-table" />
@@ -35,11 +35,11 @@ export default function Hero() {
             className="col-lg-4 d-flex align-items-center justify-content-center position-relative"
             data-aos="zoom-in"
             data-aos-delay="200"
-            >
+          >
             <a
-            href="https://www.youtube.com/watch?v=WNAmZMapIOU"
-            className="glightbox play-btn"
-          ></a>
+              href="https://www.youtube.com/watch?v=WNAmZMapIOU"
+              className="glightbox play-btn"
+            ></a>
           </div>
         </div>
       </div>
