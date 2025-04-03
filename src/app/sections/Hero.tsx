@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import Glightbox from 'glightbox'; // korrekt importiert
 import './hero.css';
 import HeroBtn from '../components/HeroBtn';
 
 export default function Hero() {
   useEffect(() => {
-    Glightbox({ // 👈 ohne "new"
-      selector: '.glightbox',
+    // Glightbox nur im Browser laden
+    import('glightbox').then((module) => {
+      const Glightbox = module.default;
+      Glightbox({ selector: '.glightbox' });
     });
   }, []);
 
@@ -24,8 +25,7 @@ export default function Hero() {
             <h1>
               Why you should Invest <span>In Stocks</span>
             </h1>
-            <h2>Alles was du für den Einstig wissen wolltest!</h2>
-
+            <h2>Alles was du für den Einstieg wissen wolltest!</h2>
             <div className="btns">
               <HeroBtn name="ButtonName" target="menu" />
               <HeroBtn name="ButtonName" target="book-a-table" />
