@@ -5,8 +5,9 @@ import WhyUs from './sections/WhyUs';
 import Tipps from './sections/Tipps';
 import Specials from './sections/Specials';
 import Events from './sections/Events';
-import Booking from './sections/Booking';
+import Riskprofile from './sections/Riskprofile';
 import Contact from './sections/Contact';
+
 
 
 
@@ -20,7 +21,7 @@ export default function Home() {
         <Tipps />
         <Specials />
         <Events />
-        <Booking/>
+        <Riskprofile/>
         <Contact/>
       </main>
     </>

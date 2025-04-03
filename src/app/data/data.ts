@@ -20,6 +20,12 @@ export const navs = [
       active: false,
     },
     {
+      id: 9,
+      name: 'Riskprofile',
+      target: 'riskprofile',
+      active: false,
+    },
+    {
       id: 4,
       name: 'Specials',
       target: 'specials',
@@ -37,6 +43,8 @@ export const navs = [
         target: 'contact',
         active: false,
       },
+
+    
 
     ];
     

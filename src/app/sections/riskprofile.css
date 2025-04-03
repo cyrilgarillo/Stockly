@@ -1,0 +1,29 @@
+.btn-option {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  background-color: #cda45e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-option:hover {
+  background-color: #d3af71;
+}
+
+.question-box, .result-box {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #1a1814;
+  border-radius: 12px;
+  color: white;
+}
+
+.progress {
+  color: #a49b89;
+}
