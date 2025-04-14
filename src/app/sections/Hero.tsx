@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="row">
           <div className="col-lg-8">
             <h1>
-              Why you should Invest <span>In Stocks</span>
+              Meli Love of my Live <span>In Stocks</span>
             </h1>
             <h2>Alles was du für den Einstieg wissen wolltest!</h2>
             <div className="btns">
