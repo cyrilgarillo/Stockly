@@ -10,6 +10,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
+  text-align: left;
 }
 
 .btn-option:hover {
@@ -26,4 +27,12 @@
 
 .progress {
   color: #a49b89;
+  margin-top: 15px;
+}
+
+.result-box img {
+  max-width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid #444;
 }

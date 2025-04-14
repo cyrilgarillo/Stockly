@@ -4,43 +4,75 @@ import React, { useState } from 'react';
 import './riskprofile.css';
 import SectionTitle from '../components/SectionTitle';
 
-export default function Riskprofile() {
-  const questions = [
+export default function Riskprofile({ onResult }: { onResult: (profil: string) => void }) {
+  const zeithorizontFragen = [
     {
-      id: 1,
-      question: 'Wie stufen Sie Ihr Risikoverhalten beim Anlegen ein?',
+      question: '1. In wie vielen Jahren will ich beginnen, Geld vom Anlagekonto zu beziehen?',
       options: [
-        { label: 'Konservativ', value: 1 },
-        { label: 'Ausgewogen', value: 3 },
-        { label: 'Aggressiv', value: 5 },
+        { label: 'In weniger als drei Jahren', score: 1 },
+        { label: 'In drei bis fünf Jahren', score: 3 },
+        { label: 'In sechs bis zehn Jahren', score: 7 },
+        { label: 'In elf oder mehr Jahren', score: 10 },
       ],
     },
     {
-      id: 2,
       question:
-        'Was würden Sie tun? 50% Chance auf CHF 6’000 Gewinn, 50% Risiko CHF 7’000 Verlust, oder nichts riskieren?',
+        '2. Ab dem Zeitpunkt, da ich Geld vom Anlagekonto beziehe, werde ich die gesamte Summe verbrauchen, innerhalb von …',
       options: [
-        { label: 'Ich wähle die riskante Option (A)', value: 5 },
-        { label: 'Ich wähle die sichere Option (B)', value: 1 },
+        { label: 'weniger als zwei Jahren', score: 0 },
+        { label: 'zwei bis fünf Jahren', score: 1 },
+        { label: 'sechs bis zehn Jahren', score: 4 },
+        { label: 'elf oder mehr Jahren', score: 8 },
+      ],
+    },
+  ];
+
+  const risikobereitschaftFragen = [
+    {
+      question: '3. Ich würde meine Kenntnisse über Anlagen wie folgt beschreiben:',
+      options: [
+        { label: 'Keine Kenntnisse', score: 0 },
+        { label: 'Beschränkte Kenntnisse', score: 2 },
+        { label: 'Gute Kenntnisse', score: 4 },
+        { label: 'Umfassende Kenntnisse', score: 5 },
       ],
     },
     {
-      id: 3,
-      question: 'Wie haben Sie sich bei finanziellen Verlusten in der Vergangenheit gefühlt?',
+      question: '4. Wenn ich Geldanlagen tätige, achte ich …',
       options: [
-        { label: 'Kaum berührt', value: 5 },
-        { label: 'Unangenehm, aber akzeptabel', value: 3 },
-        { label: 'Sehr unangenehm, Angst alles zu verlieren', value: 1 },
+        { label: 'am meisten auf einen Wertverlust meiner Anlage', score: 0 },
+        { label: 'gleichermassen auf einen Wertverlust wie auf Wertzuwachs', score: 4 },
+        { label: 'am meisten auf einen Wertzuwachs', score: 8 },
       ],
     },
     {
-      id: 4,
       question:
-        'Wie reagieren Sie, wenn Ihre Anlagen 20% Verlust in einem Jahr machen?',
+        '5. Wählen Sie die risikoreichste Anlage, die Sie besitzen oder je besessen haben:',
       options: [
-        { label: 'Ich bleibe investiert oder gehe aggressiver vor', value: 5 },
-        { label: 'Ich beobachte ein Jahr und entscheide danach', value: 3 },
-        { label: 'Ich steige sofort aus', value: 1 },
+        { label: 'Geldmarktfonds oder Baranlagen', score: 0 },
+        { label: 'Obligationen und/oder Obligationenfonds', score: 3 },
+        { label: 'Gemischte Fonds (mit Aktien und Obligationen)', score: 6 },
+        { label: 'Einzelaktien oder reine Aktienfonds', score: 8 },
+      ],
+    },
+    {
+      question:
+        '6. Was tun Sie, wenn eine Ihrer Aktien 25 % verloren hat?',
+      options: [
+        { label: 'Alle meine Aktien verkaufen', score: 0 },
+        { label: 'Einige meiner Aktien verkaufen', score: 2 },
+        { label: 'Nichts', score: 5 },
+        { label: 'Mehr Aktien kaufen', score: 8 },
+      ],
+    },
+    {
+      question: '7. Betrachten Sie die unten stehende Tabelle. Welche Bandbreite von Ergebnissen ist für Sie am ehesten annehmbar?',
+      options: [
+        { label: 'Durchschnittl. Jahresertrag: 7,2% | Bestes Ergebnis: 16,3% | Schlechtestes Ergebnis: -5,6%', score: 0 },
+        { label: 'Durchschnittl. Jahresertrag: 9,0% | Bestes Ergebnis: 25,0% | Schlechtestes Ergebnis: -12,1%', score: 3 },
+        { label: 'Durchschnittl. Jahresertrag: 10,4% | Bestes Ergebnis: 33,6% | Schlechtestes Ergebnis: -18,2%', score: 6 },
+        { label: 'Durchschnittl. Jahresertrag: 11,7% | Bestes Ergebnis: 42,8% | Schlechtestes Ergebnis: -24,0%', score: 8 },
+        { label: 'Durchschnittl. Jahresertrag: 12,5% | Bestes Ergebnis: 50,0% | Schlechtestes Ergebnis: -28,2%', score: 10 },
       ],
     },
   ];
@@ -48,24 +80,50 @@ export default function Riskprofile() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [completed, setCompleted] = useState(false);
+  const [result, setResult] = useState<string | null>(null);
 
-  const handleAnswer = (value: number) => {
-    const updated = [...answers, value];
+  const allQuestions = [...zeithorizontFragen, ...risikobereitschaftFragen];
+
+  const handleAnswer = (score: number) => {
+    const updated = [...answers, score];
     setAnswers(updated);
-    if (step + 1 < questions.length) {
+    if (step + 1 < allQuestions.length) {
       setStep(step + 1);
     } else {
+      calculateProfile(updated);
       setCompleted(true);
     }
   };
 
-  const getProfileResult = () => {
-    const sum = answers.reduce((a, b) => a + b, 0);
-    const avg = sum / answers.length;
+  const calculateProfile = (allAnswers: number[]) => {
+    const zeithorizont = allAnswers[0] + allAnswers[1];
 
-    if (avg <= 2) return 'Konservativ – Sie bevorzugen Sicherheit und vermeiden Verluste.';
-    if (avg <= 3.5) return 'Ausgewogen – Sie akzeptieren moderate Risiken für höhere Chancen.';
-    return 'Dynamisch – Sie sind risikofreudig und streben hohe Renditen an.';
+    if (zeithorizont < 3) {
+      const profil = 'Kurzer Zeithorizont = 60 % Cash, 40 % Obligationen. Aktienanlagen sind zu volatil.';
+      setResult(profil);
+      onResult(profil);
+      scrollToRecommendation();
+      return;
+    }
+
+    const risiko = allAnswers.slice(2).reduce((a, b) => a + b, 0);
+    let profil = '';
+
+    if (zeithorizont <= 4 && risiko <= 18) profil = 'Konservativ = 20% Aktien, 50% Obligationen, 30% Cash';
+    else if (zeithorizont <= 9 && risiko <= 24) profil = 'Defensiv = 40% Aktien, 50% Obligationen, 10% Cash';
+    else if (zeithorizont <= 12 && risiko <= 32) profil = 'Neutral = 60% Aktien, 35% Obligationen, 5% Cash';
+    else if (zeithorizont <= 18 && risiko <= 36) profil = 'Dynamisch = 80% Aktien, 15% Obligationen, 5% Cash';
+    else profil = 'Aggressiv = 95% Aktien, 5% Cash';
+
+    setResult(profil);
+    onResult(profil);
+    scrollToRecommendation();
+  };
+
+  const scrollToRecommendation = () => {
+    setTimeout(() => {
+      document.getElementById('anlageempfehlung')?.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
   };
 
   return (
@@ -75,25 +133,27 @@ export default function Riskprofile() {
 
         {!completed ? (
           <div className="question-box">
-            <h4>{questions[step].question}</h4>
+            <h4>{allQuestions[step].question}</h4>
             <div className="options">
-              {questions[step].options.map((opt, index) => (
+              {allQuestions[step].options.map((opt, idx) => (
                 <button
-                  key={index}
+                  key={idx}
                   className="btn-option"
-                  onClick={() => handleAnswer(opt.value)}
+                  onClick={() => handleAnswer(opt.score)}
                 >
                   {opt.label}
                 </button>
               ))}
             </div>
-            <div className="progress mt-3">Frage {step + 1} von {questions.length}</div>
+            <div className="progress mt-3">
+              Frage {step + 1} von {allQuestions.length}
+            </div>
           </div>
         ) : (
-          <div className="result-box">
-            <h4>Ihr Anlegerprofil</h4>
-            <p>{getProfileResult()}</p>
-          </div>
+        <div className="result-box">
+          <h4>Dein Profil: {result}</h4>
+          <p>Für Empfehlungen passend zu deinem Profil, siehe den nächsten Abschnitt.</p>
+        </div>
         )}
       </div>
     </section>
