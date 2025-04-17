@@ -6,7 +6,7 @@ import Hero from './sections/Hero';
 import WhyUs from './sections/WhyUs';
 import Tipps from './sections/Tipps';
 import Anlageemphelung from './sections/Anlageemphelung';
-import Events from './sections/Events';
+import Fearandgreed from './sections/Fearandgreed';
 import Riskprofile from './sections/Riskprofile';
 import Contact from './sections/Contact';
 
@@ -22,7 +22,7 @@ export default function Home() {
         <Tipps />
         <Riskprofile onResult ={setProfil} />
         <Anlageemphelung profil={profil} />
-        <Events />
+        <Fearandgreed />
         <Contact />
       </main>
     </>

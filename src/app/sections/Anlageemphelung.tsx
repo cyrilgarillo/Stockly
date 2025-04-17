@@ -39,9 +39,9 @@ export default function Anlageemphelung({ profil }: { profil: string | null }) {
   }, [profil]);
 
   return (
-    <section id="anlageempfehlung" className="why-Anlageemphelung">
+    <section id="anlageemphelung" className="anlageemphelung">
       <div className="container">
-        <SectionTitle title="Anlageempfehlung" subtitle="Deine individuelle Frage an ChatGPT" />
+        <SectionTitle title="Anlageempfehlung" subtitle="Deine individuelle Fragen" />
 
         <div className="row">
           <div className="col-lg-12 content">

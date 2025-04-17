@@ -23,12 +23,12 @@ export default function Hero() {
         <div className="row">
           <div className="col-lg-8">
             <h1>
-              Meli Love of my Live <span>In Stocks</span>
+              Why you should invest <span>In Stocks</span>
             </h1>
             <h2>Alles was du für den Einstieg wissen wolltest!</h2>
             <div className="btns">
-              <HeroBtn name="ButtonName" target="menu" />
-              <HeroBtn name="ButtonName" target="book-a-table" />
+              <HeroBtn name="About" target="about" />
+              <HeroBtn name="Tipps" target="tipps" />
             </div>
           </div>
           <div

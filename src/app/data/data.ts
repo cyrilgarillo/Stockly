@@ -33,8 +33,8 @@ export const navs = [
     },
     {
         id: 5,
-        name: 'Events',
-        target: 'events',
+        name: 'Marktstimmung',
+        target: 'marktstimmung',
         active: false,
       },
       {
