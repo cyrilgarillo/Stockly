@@ -1,28 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const FINNHUB_API_KEY = process.env.FINNHUB_API_KEY as string;
-
 export async function GET(req: NextRequest) {
   try {
-    const vixRes = await fetch(`https://finnhub.io/api/v1/quote?symbol=^VIX&token=${FINNHUB_API_KEY}`);
-    const sp500Res = await fetch(`https://finnhub.io/api/v1/quote?symbol=^GSPC&token=${FINNHUB_API_KEY}`);
+    const vixRes = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/^VIX');
+    const sp500Res = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/^GSPC');
 
-    const vix = await vixRes.json();
-    const sp500 = await sp500Res.json();
+    const vixData = await vixRes.json();
+    const sp500Data = await sp500Res.json();
+
+    const vix = vixData.chart.result[0].meta.regularMarketPrice;
+    const sp500 = sp500Data.chart.result[0].meta.regularMarketPrice;
 
     return NextResponse.json({
-      vix: vix.c,
-      sp500: sp500.c,
-      sentiment: interpretStimmung(vix.c, sp500.c),
+      vix,
+      sp500,
+      sentiment: interpretStimmung(vix, sp500),
     });
   } catch (error) {
-    console.error('Fehler beim Abrufen der Marktdaten:', error);
-    return NextResponse.json({ error: 'Fehler beim Abrufen der Daten.' }, { status: 500 });
+    console.error('Fehler beim Abrufen der Yahoo-Finance-Daten:', error);
+    return NextResponse.json({ vix: null, sp500: null, sentiment: 'Fehler beim Laden' }, { status: 500 });
   }
 }
 
 function interpretStimmung(vix: number, sp500: number): string {
-  if (vix > 25 && sp500 < 4000) return 'Angespannte Stimmung (hohe Volatilität, fallende Kurse)';
-  if (vix < 18 && sp500 > 4200) return 'Ruhige Stimmung mit positivem Trend';
+  if (vix > 30) return 'Extreme Unsicherheit';
+  if (vix > 25 && sp500 < 4500) return 'Angespannte Stimmung';
+  if (vix < 20 && sp500 > 5000) return 'Positive Stimmung mit geringer Volatilität';
+  if (vix < 18 && sp500 > 5200) return 'Optimistische Ruhe';
   return 'Gemischte Stimmung';
 }
