@@ -64,27 +64,25 @@ export default function Fearandgreed() {
       <div className="container">
         <SectionTitle title="Fear & Greed Index (Alternativ)" subtitle="Wie ist die Marktstimmung?" />
 
+        <div className="content indikator-box">
+          <h4>📊 Marktindikatoren</h4>
+          <ul>
+            <li><strong>VIX (Volatilität):</strong> {vix !== null ? `${vix.toFixed(2)} Punkte` : 'Lädt...'}</li>
+            <li><strong>S&P 500:</strong> {sp500 !== null ? `${sp500.toFixed(2)} Punkte` : 'Lädt...'}</li>
+            <li><strong>Interpretation:</strong> {stimmung}</li>
+          </ul>
+          {sp500 !== null && (
+            <p className="beschreibung">
+              Das Allzeithoch des S&P 500 liegt bei etwa <strong>6147 Punkten</strong>. Der aktuelle Stand beträgt <strong>{sp500.toFixed(2)} Punkte</strong>.
+            </p>
+          )}
+          <p className="fst-italic text-muted">
+            Die Daten stammen live von Yahoo Finance – basierend auf aktuellen Indexwerten ergibt sich eine Einschätzung zur Marktstimmung.
+          </p>
+        </div>
 
-        <div className="col-lg-6 content">
-  <h4>📊 Marktindikatoren</h4>
-  <ul>
-    <li><strong>VIX (Volatilität):</strong> {vix !== null ? `${vix.toFixed(2)} Punkte` : 'Lädt...'}</li>
-    <li><strong>S&P 500:</strong> {sp500 !== null ? `${sp500.toFixed(2)} Punkte` : 'Lädt...'}</li>
-    <li><strong>Interpretation:</strong> {stimmung}</li>
-  </ul>
-  {sp500 !== null && (
-    <p className="beschreibung">
-      Das Allzeithoch des S&P 500 liegt bei etwa <strong>6147 Punkten</strong>. Der aktuelle Stand beträgt <strong>{sp500.toFixed(2)} Punkte</strong>.
-    </p>
-  )}
-  <p className="fst-italic text-muted">
-    Die Daten stammen live von Yahoo Finance – basierend auf aktuellen Indexwerten ergibt sich eine Einschätzung zur Marktstimmung.
-  </p>
-</div>
-
-
-        <div className="row mt-5">
-          <div className="col-lg-6 content stimmungs-box">
+        <div className="grid-2">
+          <div className="stimmungs-box">
             <h4>🌍 Globale Marktstimmung (AlphaVantage)</h4>
             <p><strong>Sentiment Score (∅):</strong> {globalSentimentScore !== null ? globalSentimentScore.toFixed(4) : 'Lädt...'}</p>
             <p><strong>Stimmungslabel:</strong> {globalSentimentLabel}</p>
@@ -97,7 +95,7 @@ export default function Fearandgreed() {
             </p>
           </div>
 
-          <div className="col-lg-6 content stimmungs-box">
+          <div className="stimmungs-box">
             <h4>🧭 CNN Fear & Greed Index (manuell)</h4>
             <p><strong>Wert:</strong> {fearGreedValue !== null ? fearGreedValue : 'Lädt...'}</p>
             <p><strong>Stimmung:</strong> {fearGreedLabel}</p>
@@ -108,10 +106,8 @@ export default function Fearandgreed() {
               Manuell eingetragener Wert basierend auf CNN Markets (Aktienmarkt).
             </p>
           </div>
-        </div>
 
-        <div className="row mt-4">
-          <div className="col-lg-6 content stimmungs-box">
+          <div className="stimmungs-box">
             <h4>💰 Crypto Fear & Greed Index</h4>
             <p><strong>Wert:</strong> {cryptoFearGreedValue !== null ? cryptoFearGreedValue : 'Lädt...'}</p>
             <p><strong>Stimmung:</strong> {cryptoFearGreedLabel}</p>
@@ -123,7 +119,6 @@ export default function Fearandgreed() {
               Quelle: alternative.me
             </p>
           </div>
-
         </div>
       </div>
     </section>
