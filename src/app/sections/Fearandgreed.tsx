@@ -1,22 +1,41 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './fearandgreed.css';
 import SectionTitle from '../components/SectionTitle';
 
-export default function Fearandgreed() {
-  const [vix, setVix] = useState<number | null>(null);
-  const [sp500, setSp500] = useState<number | null>(null);
-  const [stimmung, setStimmung] = useState<string>('');
+type Props = {
+  stimmung: string;
+  setStimmung: React.Dispatch<React.SetStateAction<string>>;
+  vix: number | null;
+  setVix: React.Dispatch<React.SetStateAction<number | null>>;
+  sp500: number | null;
+  setSp500: React.Dispatch<React.SetStateAction<number | null>>;
+  globalSentimentScore: number | null;
+  setGlobalSentimentScore: React.Dispatch<React.SetStateAction<number | null>>;
+  globalSentimentLabel: string;
+  setGlobalSentimentLabel: React.Dispatch<React.SetStateAction<string>>;
+  fearGreedValue: number | null;
+  setFearGreedValue: React.Dispatch<React.SetStateAction<number | null>>;
+  fearGreedLabel: string;
+  setFearGreedLabel: React.Dispatch<React.SetStateAction<string>>;
+  cryptoFearGreedValue: number | null;
+  setCryptoFearGreedValue: React.Dispatch<React.SetStateAction<number | null>>;
+  cryptoFearGreedLabel: string;
+  setCryptoFearGreedLabel: React.Dispatch<React.SetStateAction<string>>;
+};
 
-  const [globalSentimentScore, setGlobalSentimentScore] = useState<number | null>(null);
-  const [globalSentimentLabel, setGlobalSentimentLabel] = useState<string>('');
-
-  const [fearGreedValue, setFearGreedValue] = useState<number | null>(null);
-  const [fearGreedLabel, setFearGreedLabel] = useState<string>('');
-
-  const [cryptoFearGreedValue, setCryptoFearGreedValue] = useState<number | null>(null);
-  const [cryptoFearGreedLabel, setCryptoFearGreedLabel] = useState<string>('');
+export default function Fearandgreed({
+  stimmung, setStimmung,
+  vix, setVix,
+  sp500, setSp500,
+  globalSentimentScore, setGlobalSentimentScore,
+  globalSentimentLabel, setGlobalSentimentLabel,
+  fearGreedValue, setFearGreedValue,
+  fearGreedLabel, setFearGreedLabel,
+  cryptoFearGreedValue, setCryptoFearGreedValue,
+  cryptoFearGreedLabel, setCryptoFearGreedLabel
+}: Props) {
 
   useEffect(() => {
     fetch('/api/marktstimmung')
@@ -25,32 +44,28 @@ export default function Fearandgreed() {
         setVix(data.vix);
         setSp500(data.sp500);
         setStimmung(data.sentiment);
-      })
-      .catch(() => setStimmung('Fehler beim Laden der Daten'));
+      });
 
     fetch('/api/marktstimmungglobal')
       .then((res) => res.json())
       .then((data) => {
         setGlobalSentimentScore(data.sentimentScore);
         setGlobalSentimentLabel(data.sentimentLabel);
-      })
-      .catch(() => setGlobalSentimentLabel('Fehler beim Laden'));
+      });
 
     fetch('/api/cnnfearandgreed')
       .then((res) => res.json())
       .then((data) => {
         setFearGreedValue(data.value);
         setFearGreedLabel(data.label);
-      })
-      .catch(() => setFearGreedLabel('Fehler beim Laden'));
+      });
 
     fetch('/api/cryptofearandgreed')
       .then((res) => res.json())
       .then((data) => {
         setCryptoFearGreedValue(data.value);
         setCryptoFearGreedLabel(data.label);
-      })
-      .catch(() => setCryptoFearGreedLabel('Fehler beim Laden'));
+      });
   }, []);
 
   const getZeigerPosition = (score: number | null) => {
