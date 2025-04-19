@@ -68,8 +68,7 @@ export default function Anlageemphelung({
       handleSenden(`Welche Anlagestrategie eignet sich für folgendes Profil? ${profil}`);
       setEingabe(`Ich gebe dir nun die Altuelle Marktlage um nacher die Frage zu beantworten. 
 
-
-Die aktuelle Einschätzung der Marktlage lautet: '${stimmung}'. Der Volatilitätsindex (VIX) liegt derzeit bei '${vix !== null ? `${vix.toFixed(2)} Punkten` : 'Lädt...'}',
+        Die aktuelle Einschätzung der Marktlage lautet: '${stimmung}'. Der Volatilitätsindex (VIX) liegt derzeit bei '${vix !== null ? `${vix.toFixed(2)} Punkten` : 'Lädt...'}',
 was auf ${vix !== null && vix > 25 ? 'eine erhöhte Unsicherheit' : 'eine moderate Markterwartung'} hindeutet.
 
 Der S&P 500 steht aktuell bei '${sp500 !== null ? `${sp500.toFixed(2)} Punkten` : 'Lädt...'}'. Zum Vergleich: das Allzeithoch liegt bei '6147 Punkten',
@@ -96,7 +95,7 @@ Welche Anlagestrategie eignet sich für folgendes Profil? ${profil} ?`);
   return (
     <section id="anlageemphelung" className="anlageemphelung">
       <div className="container">
-        <SectionTitle title="Anlageempfehlung" subtitle="Deine individuelle Fragen" />
+        <SectionTitle title="Anlageempfehlung" subtitle="Unsere Anlageempfehlung für dich" />
         <div className="row">
           <div className="col-lg-12 content">
             <h4 className="mb-3">Stelle eine Frage rund um dein Risikoprofil oder Investments:</h4>
