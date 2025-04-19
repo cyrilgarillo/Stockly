@@ -35,20 +35,34 @@ export default function Anlageemphelung({
     if (!promptText.trim()) return;
     setLoading(true);
     setAntwort('');
+    
     try {
       const res = await fetch('/api/chatgpt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: promptText })
       });
+    
+      if (!res.ok) {
+        throw new Error(`Serverfehler: ${res.status}`); // z. B. 500 oder 404
+      }
+    
       const data = await res.json();
+    
+      if (!data.result) {
+        throw new Error('Ungültige Antwort vom Server.');
+      }
+    
       setAntwort(data.result);
-    } catch (err) {
-      setAntwort('Fehler beim Laden der Empfehlung.');
+    } catch (err: any) {
+      console.error('Fehler:', err);
+      setAntwort('Fehler beim Laden der Empfehlung. Bitte später erneut versuchen.');
     } finally {
       setLoading(false);
     }
   };
+
+
   useEffect(() => {
     if (profil) {
       handleSenden(`Welche Anlagestrategie eignet sich für folgendes Profil? ${profil}`);
