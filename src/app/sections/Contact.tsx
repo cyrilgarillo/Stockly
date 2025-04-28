@@ -1,8 +1,47 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import './contact.css';
 import SectionTitle from '../components/SectionTitle';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(false);
+
+    try {
+      // Hier kannst du deine API-Logik einfügen, z.B. fetch('/api/contact', {...})
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulierter Versand
+
+      setMessageSent(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      console.error(err);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="contact">
       <div className="container" data-aos="fade-up">
@@ -20,8 +59,6 @@ export default function Contact() {
                 <p>100 Your Street, Your City, State 1234</p>
               </div>
 
-
-
               <div className="email">
                 <i className="bi bi-envelope"></i>
                 <h4>Email:</h4>
@@ -38,7 +75,7 @@ export default function Contact() {
 
           {/* Kontaktformular */}
           <div className="col-lg-8 mt-5 mt-lg-0">
-            <form role="form" className="contact-form">
+            <form onSubmit={handleSubmit} role="form" className="contact-form">
               <div className="row">
                 <div className="col-md-6 form-group">
                   <input
@@ -47,16 +84,21 @@ export default function Contact() {
                     className="form-control"
                     id="name"
                     placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
                     required
                   />
                 </div>
+
                 <div className="col-md-6 form-group mt-3 mt-md-0">
                   <input
                     type="email"
-                    className="form-control"
                     name="email"
+                    className="form-control"
                     id="email"
                     placeholder="Your Email"
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                   />
                 </div>
@@ -65,34 +107,40 @@ export default function Contact() {
               <div className="form-group mt-3">
                 <input
                   type="text"
-                  className="form-control"
                   name="subject"
+                  className="form-control"
                   id="subject"
                   placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   required
                 />
               </div>
 
               <div className="form-group mt-3">
                 <textarea
-                  className="form-control"
                   name="message"
+                  className="form-control"
                   rows={8}
                   placeholder="Message"
+                  value={formData.message}
+                  onChange={handleChange}
                   required
                 ></textarea>
               </div>
 
+              {/* Nachrichten Bereich */}
               <div className="my-3">
-                <div className="loading">Loading</div>
-                <div className="error-message"></div>
-                <div className="sent-message">
-                  Your message has been sent. Thank you!
-                </div>
+                {loading && <div className="loading">Loading...</div>}
+                {error && <div className="error-message">Sending failed. Please try again.</div>}
+                {messageSent && <div className="sent-message">Your message has been sent. Thank you!</div>}
               </div>
 
+              {/* Button */}
               <div className="text-center">
-                <button type="submit">Send Message</button>
+                <button type="submit" className="btn btn-primary" disabled={loading}>
+                  {loading ? 'Sending...' : 'Send Message'}
+                </button>
               </div>
             </form>
           </div>

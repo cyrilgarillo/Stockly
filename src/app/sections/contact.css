@@ -10,7 +10,7 @@
     float: left;
     width: 44px;
     height: 44px;
-    background: #cda45e;
+    background: #5B8DB8 ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@
     padding: 0 0 0 60px;
     margin-bottom: 0;
     font-size: 14px;
-    color: #bab3a6;
+    color: #fff;
   }
   
   .contact .info .open-hours,
@@ -94,28 +94,28 @@
     border-radius: 0;
     box-shadow: none;
     font-size: 14px;
-    background: #0c0b09;
+    background: #5B8DB8 ;
     border-color: #625b4b;
     color: white;
   }
   .contact .contact-form input::-webkit-input-placeholder,
   .contact .contact-form textarea::-webkit-input-placeholder {
-    color: #a49b89;
+    color: #fff;
   }
   
   .contact .contact-form input::-moz-placeholder,
   .contact .contact-form textarea::-moz-placeholder {
-    color: #a49b89;
+    color: #fff;
   }
   
   .contact .contact-form input::placeholder,
   .contact .contact-form textarea::placeholder {
-    color: #a49b89;
+    color: #fff;
   }
   
   .contact .contact-form input:focus,
   .contact .contact-form textarea:focus {
-    border-color: #cda45e;
+    border-color: #fff;
   }
   .contact .contact-form input {
     height: 44px;
@@ -126,7 +126,7 @@
   }
   
   .contact .contact-form button[type='submit'] {
-    background: #cda45e;
+    background: #5B8DB8 ;
     border: 0;
     padding: 10px 35px;
     color: #fff;
@@ -135,7 +135,7 @@
   }
   
   .contact .contact-form button[type='submit']:hover {
-    background: #d3af71;
+    background: #7c9dbb;
   }
   @-webkit-keyframes animate-loading {
     0% {
@@ -153,4 +153,46 @@
       transform: rotate(360deg);
     }
   }
-                
+  .contact .contact-form .form-control {
+    background: #5B8DB8;
+    border-color: #625b4b;
+    color: white;
+  }
+  
+  .contact .contact-form .form-control::placeholder {
+    color: white;
+  }
+  
+  .contact .contact-form .form-control:focus {
+    background: #5B8DB8;
+    color: white;
+    border-color: white;
+    box-shadow: none;
+  }
+  
+  /* Statusmeldungen */
+  .contact .contact-form .loading,
+  .contact .contact-form .error-message,
+  .contact .contact-form .sent-message {
+    text-align: center;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+  
+  .contact .contact-form .loading {
+    background: #f7c600;
+    color: black;
+  }
+  
+  .contact .contact-form .error-message {
+    background: #ed3c0d;
+    color: white;
+  }
+  
+  .contact .contact-form .sent-message {
+    background: #18d26e;
+    color: white;
+  }
+  

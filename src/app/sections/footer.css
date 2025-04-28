@@ -2,14 +2,14 @@
 # Footer
 --------------------------------------------------------------*/
 #footer {
-    background: black;
+    background: #A7C7E7;
     padding: 0 0 30px 0;
     color: #fff;
     font-size: 14px;
   }
   
   #footer .footer-top {
-    background: #0c0b09;
+    background:  #7c9dbb ;
     border-top: 1px solid #37332a;
     border-bottom: 1px solid #28251f;
     padding: 60px 0 30px 0;
@@ -51,7 +51,7 @@
   }
   
   #footer .footer-top .social-links a:hover {
-    background: #cda45e;
+    background: #7c9dbb;
     color: #fff;
     text-decoration: none;
   }
@@ -75,7 +75,7 @@
   
   #footer .footer-top .footer-links ul i {
     padding-right: 2px;
-    color: #cda45e;
+    color:#7c9dbb;
     font-size: 18px;
     line-height: 1;
   }
@@ -97,7 +97,7 @@
   }
   
   #footer .footer-top .footer-links ul a:hover {
-    color: #cda45e;
+    color: #7c9dbb;
   }
   
   #footer .footer-top .footer-newsletter form {
@@ -126,14 +126,14 @@
     background: none;
     font-size: 16px;
     padding: 0 20px 2px 20px;
-    background: #cda45e;
+    background: #5B8DB8 ;
     color: #fff;
     transition: 0.3s;
     border-radius: 50px;
   }
   
   #footer .footer-top .footer-newsletter form input[type='submit']:hover {
-    background: #d3af71;
+    background: #7c9dbb ;
   }
   
   #footer .copyright {
@@ -149,6 +149,6 @@
   }
   
   #footer .credits a {
-    color: #cda45e;
+    color: #5B8DB8 ;
   }
         
