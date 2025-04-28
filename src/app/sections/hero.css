@@ -40,7 +40,7 @@
   }
   
   #hero h1 span {
-    color: #cda45e;
+    color: #7c9dbb;
   }
   
   #hero h2 {
@@ -55,7 +55,7 @@
   #hero .play-btn {
     width: 94px;
     height: 94px;
-    background: radial-gradient(#cda45e 50%, rgba(205, 164, 94, 0.4) 52%);
+    background: radial-gradient(#7c9dbb 50%, rgba(124, 157, 187, 0.4) 52%);
     border-radius: 50%;
     display: block;
     position: relative;
@@ -94,13 +94,13 @@
     animation-timing-function: steps;
     opacity: 1;
     border-radius: 50%;
-    border: 5px solid rgba(205, 164, 94, 0.7);
+    border: 5px solid rgba(124, 157, 187, 0.4);
     top: -15%;
     left: -15%;
     background: rgba(198,16,0,0);
   }
   #hero .play-btn:hover::after {
-    border-left: 15px solid #cda45e;
+    border-left: 15px solid #7c9dbb ;
     transform: scale(20);
   }
   

@@ -2,9 +2,10 @@
 
 body {
   font-family: 'Open Sans', sans-serif !important;
-  background: #0c0b09 !important;
+  background:  #A7C7E7 !important;
   color: #ffffff;
 }
+
 
 a {
   color: #cda45e;
@@ -38,7 +39,7 @@ section {
 }
 
 .section-bg {
-  background-color: #1a1814;
+  background-color:  #A7C7E7;
 }
 
 

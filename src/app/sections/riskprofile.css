@@ -3,7 +3,7 @@
   width: 100%;
   padding: 12px;
   margin: 8px 0;
-  background-color: #cda45e;
+  background-color:  #A7C7E7;
   color: white;
   border: none;
   border-radius: 8px;
@@ -14,13 +14,13 @@
 }
 
 .btn-option:hover {
-  background-color: #d3af71;
+  background-color: #7c9dbb;
 }
 
 .question-box, .result-box {
   margin-top: 30px;
   padding: 20px;
-  background-color: #1a1814;
+  background-color: #5B8DB8 ;
   border-radius: 12px;
   color: white;
 }

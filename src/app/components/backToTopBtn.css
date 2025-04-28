@@ -12,18 +12,18 @@
     height: 44px;
     border-radius: 50px;
     transition: all 0.4s;
-    border: 2px solid #cda45e;
+    border: 2px solid #7c9dbb;
     text-decoration: none;
   }
   
   .back-to-top i {
     font-size: 28px;
-    color: #cda45e;
+    color: #7c9dbb;
     line-height: 0;
   }
   
   .back-to-top:hover {
-    background: #cda45e;
+    background: #7c9dbb;
     color: #1a1814;
   }
   .back-to-top:hover i {

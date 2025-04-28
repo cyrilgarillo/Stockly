@@ -38,9 +38,6 @@ export default function TopBar() {
         <div className="languages d-none d-md-flex align-items-center">
           <ul>
             <li>DE</li>
-            <li>
-              <a href="#">EN</a>
-            </li>
           </ul>
         </div>
       </div>

@@ -46,7 +46,7 @@
   .navbar .active,
   .navbar .active:focus,
   .navbar li:hover > a {
-    color: #d9ba85;
+    color: #5B8DB8;
   }
   .navbar .dropdown ul {
     display: block;

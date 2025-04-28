@@ -2,7 +2,7 @@
 # Header
 --------------------------------------------------------------*/
 #header {
-    background: rgba(12, 11, 9, 0.6);
+    background: rgba(167, 199, 231, 0.85)  ;
     border-bottom: 1px solid rgba(12, 11, 9, 0.6);
     transition: all 0.5s;
     z-index: 997;
@@ -12,7 +12,7 @@
   
   #header.header-scrolled {
     top: 0;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(167, 199, 231, 0.85)    ;
     border-bottom: 1px solid #37332a;
   }
   

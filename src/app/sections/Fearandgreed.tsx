@@ -91,7 +91,7 @@ export default function Fearandgreed({
               Das Allzeithoch des S&P 500 liegt bei etwa <strong>6147 Punkten</strong>. Der aktuelle Stand beträgt <strong>{sp500.toFixed(2)} Punkte</strong>.
             </p>
           )}
-          <p className="fst-italic text-muted">
+          <p className="fst-italictext-muted">
             Die Daten stammen live von Yahoo Finance – basierend auf aktuellen Indexwerten ergibt sich eine Einschätzung zur Marktstimmung.
           </p>
         </div>

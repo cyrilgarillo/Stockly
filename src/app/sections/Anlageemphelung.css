@@ -1,0 +1,22 @@
+/* Anlageempfehlung.css */
+
+.btn-primary {
+    background-color: #5B8DB8;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.375rem; /* leichte Abrundung */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #7c9dbb ; /* etwas dunkler beim Hover */
+  }
+  
+  .btn-primary:disabled {
+    background-color: #a5c0d9; /* hellere Farbe wenn disabled */
+    cursor: not-allowed;
+  }
+  
