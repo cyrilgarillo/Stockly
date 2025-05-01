@@ -2,14 +2,14 @@
 
 import React from 'react';
 import './whyUs.css';
-import WhyUsCard from '../components/WhyUsCard';
+import InflationCalculator from '../components/InflationCalculator';
 import SectionTitle from '../components/SectionTitle';
 
 const staticItems = [
   {
     id: 1,
-    title: 'Erfahrung & Kompetenz',
-    content: 'Unser Team bringt jahrelange Erfahrung mit und bietet dir eine sichere Grundlage für deinen Einstieg ins Investieren.',
+    title: 'Kaufkraft erhalten',
+    content: 'Mit unserem Inflationsrechner kannst du sehen, wie dein Geld durch Inflation an Wert verliert – und wie du mit klugen Investments entgegenwirken kannst.',
   },
   {
     id: 2,
@@ -27,10 +27,16 @@ export default function WhyUs() {
   return (
     <section id="why-us" className="why-us">
       <div className="container">
-        <SectionTitle title="why-us" subtitle="Why Choose Our Platform" />
+        <SectionTitle title="why-us" subtitle="Warum unsere Plattform?" />
         <div className="row">
           {staticItems.map((item) => (
-            <WhyUsCard key={item.id} item={item} />
+            <div key={item.id} className="col-lg-4 col-md-6 d-flex align-items-stretch mb-4">
+              <div className="box">
+                <h4>{item.title}</h4>
+                <p>{item.content}</p>
+                {item.id === 1 && <InflationCalculator />}
+              </div>
+            </div>
           ))}
         </div>
       </div>

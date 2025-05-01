@@ -32,7 +32,7 @@ export default function Tipps() {
         <div className="row">
           {tipps.map((tipp) => (
             <div key={tipp.id} className="col-lg-4 col-md-6 d-flex align-items-stretch mb-4">
-              <div className="icon-box">
+              <div className="box">
                 <h4>{tipp.title}</h4>
                 <p>{tipp.content}</p>
               </div>
