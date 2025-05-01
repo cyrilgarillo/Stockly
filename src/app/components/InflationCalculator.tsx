@@ -16,7 +16,7 @@ export default function InflationCalculator() {
       <h5>💰 Inflationsrechner</h5>
       <p>Berechne, wie viel deine heutige Kaufkraft in Zukunft noch wert ist.</p>
 
-      <label htmlFor="amount">Ursprungsbetrag (€)</label>
+      <label htmlFor="amount">Ursprungsbetrag (CHF)</label>
       <input
         id="amount"
         type="number"
@@ -41,8 +41,8 @@ export default function InflationCalculator() {
       />
 
       <div className="result">
-        Ergebnis: Bei {inflation}% Inflation sind {amount.toFixed(2)} € in {years} Jahren
-        nur noch ca. <strong>{futureValue.toFixed(2)} €</strong> wert.
+        Ergebnis: Bei {inflation}% Inflation sind {amount.toFixed(2)} CHF in {years} Jahren
+        nur noch ca. <strong>{futureValue.toFixed(2)} CHF</strong> wert.
       </div>
     </div>
   );

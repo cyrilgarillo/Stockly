@@ -1,0 +1,60 @@
+.why-invest {
+    padding: 30px;
+    background-color: #5B8DB8;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    margin-top: 40px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .why-invest h5 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #eef1fc;
+  }
+  
+  .why-invest p {
+    font-size: 14px;
+    color: #f0f4ff;
+    margin-bottom: 20px;
+  }
+  
+  .comparison-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 15px;
+  }
+  
+  .comparison-box .side {
+    flex: 1;
+    background-color: #7c9dbb;
+    padding: 15px;
+    border-radius: 6px;
+  }
+  
+  .comparison-box h6 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .comparison-box ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .comparison-box li {
+    margin-bottom: 6px;
+    color: #ffffff;
+  }
+  
+  .bottom-text {
+    margin-top: 20px;
+    background-color: #4b7aa1;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
