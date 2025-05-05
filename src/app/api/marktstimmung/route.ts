@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       vix,
       sp500,
-      sentiment: interpretStimmung(vix, sp500),
+      sentiment: interpretStimmung(vix),
     });
   } catch (error) {
     console.error('Fehler beim Abrufen der Yahoo-Finance-Daten:', error);
@@ -22,10 +22,10 @@ export async function GET(req: NextRequest) {
   }
 }
 
-function interpretStimmung(vix: number, sp500: number): string {
-  if (vix > 30) return 'Extreme Unsicherheit';
-  if (vix > 25 && sp500 < 4500) return 'Angespannte Stimmung';
-  if (vix < 20 && sp500 > 5000) return 'Positive Stimmung mit geringer Volatilität';
-  if (vix < 18 && sp500 > 5200) return 'Optimistische Ruhe';
-  return 'Gemischte Stimmung';
+function interpretStimmung(vix: number): string {
+  if (vix > 30) return 'Angst, Stress, oft in Krisen (z.B. Crashs, extreme Unsicherheit)';
+  if (vix > 25) return 'Nervosität / Volatilität steigt deutlich';
+  if (vix > 20) return 'Erhöhte Unsicherheit';
+  if (vix >= 15) return 'Normaler Markt, gesunde Stabilität';
+  return 'Sehr ruhiger Markt, geringe Unsicherheit';
 }
