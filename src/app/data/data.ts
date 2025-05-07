@@ -27,8 +27,8 @@ export const navs = [
     },
     {
       id: 9,
-      name: 'Anlageemphelung',
-      target: 'anlageemphelung',
+      name: 'Anlageempfehlung',
+      target: 'anlageempfehlung',
       active: false,
     },
     {

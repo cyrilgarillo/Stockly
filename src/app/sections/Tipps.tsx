@@ -46,11 +46,6 @@ const tipps = [
     content: 'Zinseszins wirkt über viele Jahre – bleib investiert und lass dein Kapital arbeiten.',
   },
   {
-    id: 9,
-    title: 'Nicht auf Tipps hören',
-    content: 'Kaufe keine Aktien, nur weil Freunde oder Nachbarn davon sprechen – recherchiere selbst.',
-  },
-  {
     id: 10,
     title: 'Indexfonds nutzen',
     content: 'Ein ETF auf den S&P 500 oder MSCI World ist kostengünstig, breit gestreut und effektiv.',

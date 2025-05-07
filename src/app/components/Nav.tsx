@@ -85,7 +85,10 @@ export default function Nav() {
           <li key={nav.id}>
             <a
               className={`nav-link scrollto ${nav.active ? 'active' : ''}`}
-              onClick={() => handleScrollTo(nav.target)}
+              onClick={() => {
+                handleScrollTo(nav.target);
+                setOpen(false); // Mobile-Menü schließen nach Klick
+              }}
             >
               {nav.name === 'Home' ? (
                 <i className="bi bi-house-door-fill"></i>
@@ -102,4 +105,5 @@ export default function Nav() {
       />
     </nav>
   );
+  
 }

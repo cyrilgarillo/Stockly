@@ -5,7 +5,7 @@ import About from './sections/About';
 import Hero from './sections/Hero';
 import WhyUs from './sections/WhyUs';
 import Tipps from './sections/Tipps';
-import Anlageemphelung from './sections/Anlageemphelung';
+import Anlageemphelung from './sections/Anlageempfehlung';
 import Fearandgreed from './sections/Fearandgreed';
 import Riskprofile from './sections/Riskprofile';
 import Contact from './sections/Contact';
@@ -27,8 +27,6 @@ export default function Home() {
       <Hero />
       <main id="main">
         <About />
-        <WhyUs />
-        <Tipps />
         <Riskprofile onResult={setProfil} />
         <Anlageemphelung
           profil={profil}
@@ -42,6 +40,8 @@ export default function Home() {
           cryptoFearGreedValue={cryptoFearGreedValue}
           cryptoFearGreedLabel={cryptoFearGreedLabel}
         />
+        <WhyUs />
+        <Tipps />
         <Fearandgreed
           stimmung={stimmung}
           setStimmung={setStimmung}
