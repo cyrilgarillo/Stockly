@@ -179,7 +179,6 @@ Bitte gib deine Empfehlung wie folgt zurück:
 > Beende die Antwort mit einem Fazit zur Portfolio-Strategie.  
 > Vermeide pauschale Aussagen oder Vorschläge ohne Kontext.
 
-
         
         `);
       setEingabe(`    
