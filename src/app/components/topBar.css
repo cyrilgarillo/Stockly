@@ -1,25 +1,18 @@
 /*--------------------------------------------------------------
-# Top Bar
+# Top Bar mit Live Ticker
 --------------------------------------------------------------*/
 #topbar {
   height: 40px;
   font-size: 14px;
+  background: #1c2d3a;
   transition: all 0.5s;
   z-index: 996;
+  overflow: hidden;
+  color: white;
 }
 
 #topbar.topbar-scrolled {
   top: -40px;
-}
-
-#topbar .contact-info i {
-  font-style: normal;
-  color: #d9ba85;
-}
-
-#topbar .contact-info i span {
-  padding-left: 5px;
-  color: #fff;
 }
 
 #topbar .languages ul {
@@ -31,17 +24,60 @@
   color: #fff;
 }
 
-#topbar .languages ul a {
-  color: white;
-}
-
 #topbar .languages ul li + li {
   padding-left: 10px;
 }
 
 #topbar .languages ul li + li::before {
-  display: inline-block;
+  content: '/';
   padding-right: 10px;
   color: rgba(255, 255, 255, 0.5);
-  content: '/';
+}
+
+/* Ticker-Stil */
+.ticker-wrapper {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.ticker-content {
+  display: flex;
+  gap: 40px;
+  padding: 0 10px;
+  animation: scroll-left 70s linear infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 15px;
+}
+
+.symbol {
+  font-weight: bold;
+  color: #a7c7e7;
+}
+
+.price {
+  color: #ffffff;
+}
+
+.change.up {
+  color: #00c851;
+}
+
+.change.down {
+  color: #ff4444;
 }

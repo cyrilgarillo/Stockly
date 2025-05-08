@@ -1,10 +1,18 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './topBar.css';
+
+interface TickerData {
+  symbol: string;
+  price: number;
+  change: number;
+  changePercent: string;
+}
 
 export default function TopBar() {
   const [scroll, setScroll] = useState(0);
+  const [tickers, setTickers] = useState<TickerData[]>([]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -13,12 +21,24 @@ export default function TopBar() {
       };
 
       window.addEventListener('scroll', handleScroll);
-
       return () => {
         window.removeEventListener('scroll', handleScroll);
       };
     }
-  }, []); // Nur einmal bei Mount
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch('/api/alphavantage');
+      const data = await res.json();
+      setTickers(data);
+    };
+
+    fetchData();
+    const interval = setInterval(fetchData, 7200000); // alle 2 Stunden aktualisieren
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div
@@ -27,12 +47,23 @@ export default function TopBar() {
         scroll > 100 ? 'topbar-scrolled' : ''
       }`}
     >
-      <div className="container d-flex justify-content-center justify-content-md-between">
-        <div className="contact-info d-flex align-items-center">
-          <span>SMI</span>
-          <i className="bi d-flex align-items-center ms-4">
-            <span> S&P500</span>
-          </i>
+      <div className="container d-flex justify-content-between">
+        <div className="ticker-wrapper">
+          <div className="ticker-content">
+            {tickers.map((ticker, index) => {
+              const isNegative = ticker.change < 0;
+              return (
+                <div key={index} className="ticker-item">
+                  <span className="symbol">{ticker.symbol}</span>
+                  <span className="price">${ticker.price.toFixed(2)}</span>
+                  <span className={`change ${isNegative ? 'down' : 'up'}`}>
+                    {ticker.change > 0 ? '+' : ''}
+                    {ticker.change.toFixed(2)} ({ticker.changePercent})
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="languages d-none d-md-flex align-items-center">

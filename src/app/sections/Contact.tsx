@@ -56,7 +56,7 @@ export default function Contact() {
   return (
     <section id="contact" className="contact">
       <div className="container" data-aos="fade-up">
-        <SectionTitle title="Contact" subtitle="Get in touch" />
+        <SectionTitle title="Kontakt" subtitle="Get in touch" />
       </div>
 
       <div className="container" data-aos="fade-up">
@@ -65,8 +65,8 @@ export default function Contact() {
             <div className="info">
               <div className="address mb-3">
                 <i className="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>100 Your Street, Your City, State 1234</p>
+                <h4>Ort:</h4>
+                <p>Weltpoststrasse 19 Bern</p>
               </div>
               <div className="email mb-3">
                 <i className="bi bi-envelope"></i>
@@ -75,8 +75,8 @@ export default function Contact() {
               </div>
               <div className="phone">
                 <i className="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+00000</p>
+                <h4>Telefon:</h4>
+                <p>+41 079 895 78 69</p>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function Contact() {
                     type="text"
                     name="name"
                     className="form-control"
-                    placeholder="Your Name"
+                    placeholder="Dein Name"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -100,7 +100,7 @@ export default function Contact() {
                     type="email"
                     name="email"
                     className="form-control"
-                    placeholder="Your Email"
+                    placeholder="Deine Email"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -112,7 +112,7 @@ export default function Contact() {
                   type="text"
                   name="subject"
                   className="form-control"
-                  placeholder="Subject"
+                  placeholder="Betreff"
                   value={formData.subject}
                   onChange={handleChange}
                   required
@@ -123,7 +123,7 @@ export default function Contact() {
                   name="message"
                   className="form-control"
                   rows={8}
-                  placeholder="Message"
+                  placeholder="Nachricht"
                   value={formData.message}
                   onChange={handleChange}
                   required

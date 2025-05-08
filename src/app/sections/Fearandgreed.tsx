@@ -77,10 +77,10 @@ export default function Fearandgreed({
   return (
     <section id="marktstimmung" className="marktstimmung">
       <div className="container">
-        <SectionTitle title="Fear & Greed Index (Alternativ)" subtitle="Wie ist die Marktstimmung?" />
+        <SectionTitle title="Marktindikatoren" subtitle="Wie ist die Marktstimmung?" />
 
         <div className="content indikator-box">
-          <h4>📊 Marktindikatoren</h4>
+          <h4>📊 VIX und  S&P 500</h4>
           <ul>
             <li><strong>VIX (Volatilität):</strong> {vix !== null ? `${vix.toFixed(2)} Punkte` : 'Lädt...'}</li>
             <li><strong>S&P 500:</strong> {sp500 !== null ? `${sp500.toFixed(2)} Punkte` : 'Lädt...'}</li>
@@ -92,7 +92,7 @@ export default function Fearandgreed({
             </p>
           )}
           <p className="fst-italictext-muted">
-            Die Daten stammen live von Yahoo Finance – basierend auf aktuellen Indexwerten ergibt sich eine Einschätzung zur Marktstimmung.
+            Die Daten stammen live von Yahoo Finance basierend auf dem aktuellen VIX Wert ergibt sich eine Einschätzung zur Marktstimmung.
           </p>
         </div>
 
