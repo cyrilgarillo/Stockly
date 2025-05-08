@@ -40,8 +40,8 @@ export default function Home() {
           cryptoFearGreedValue={cryptoFearGreedValue}
           cryptoFearGreedLabel={cryptoFearGreedLabel}
         />
-        <WhyUs />
         <Tipps />
+        <WhyUs />
         <Fearandgreed
           stimmung={stimmung}
           setStimmung={setStimmung}

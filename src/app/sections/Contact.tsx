@@ -54,7 +54,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="contact">
+    <section id="kontakt" className="kontact">
       <div className="container" data-aos="fade-up">
         <SectionTitle title="Kontakt" subtitle="Get in touch" />
       </div>

@@ -129,7 +129,11 @@ export default function Riskprofile({ onResult }: { onResult: (profil: string) =
   return (
     <section id="riskprofile" className="riskprofile">
       <div className="container" data-aos="fade-up">
-        <SectionTitle title="Profil bestimmen" subtitle="Risk Profile" />
+        <SectionTitle title="Profil bestimmen" subtitle="Risikoprofil" />
+        <p className="riskprofile-info">
+  Beantworte ein paar kurze Fragen, um dein persönliches Risikoprofil zu ermitteln. Anschliessend gibt es automatisierte Anlageempfehlung auf der nächsten seite "Anlageempfehlung".
+</p>
+
 
         {!completed ? (
           <div className="question-box">

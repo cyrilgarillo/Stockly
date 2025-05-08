@@ -40,7 +40,7 @@ export default function Header() {
         </h1>
 
         <Nav />
-        <AppBtn name="Riskprofile" />
+        <AppBtn name="Risikoprofil" />
       </div>
     </header>
   );

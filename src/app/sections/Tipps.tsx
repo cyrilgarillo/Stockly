@@ -8,22 +8,22 @@ const tipps = [
   {
     id: 1,
     title: 'Früh starten',
-    content: 'Je früher du mit dem Investieren beginnst, desto länger kann dein Kapital wachsen – Zinseszins ist dein Freund.',
+    content: 'Je früher du mit dem Investieren beginnst, desto länger kann dein Kapital wachsen  Zinseszins ist dein Freund.',
   },
   {
     id: 2,
-    title: 'Regelmäßig sparen',
+    title: 'Regelmässig sparen',
     content: 'Spare konsequent und plane mindestens 10 % deines Einkommens für Investitionen ein.',
   },
   {
     id: 3,
     title: 'Notgroschen aufbauen',
-    content: 'Bevor du investierst, lege einen Notgroschen von 4–6 Monatsgehältern für Notfälle zurück.',
+    content: 'Bevor du investierst, lege einen Notgroschen von 4 bis 6 Monatsgehältern für Notfälle zurück.',
   },
   {
     id: 4,
     title: 'Langfristig denken',
-    content: 'Investiere mit einem Horizont von mehreren Jahren – kurzfristige Schwankungen sind normal.',
+    content: 'Investiere mit einem Horizont von mehreren Jahren, kurzfristige Schwankungen sind normal.',
   },
   {
     id: 5,
@@ -35,16 +35,7 @@ const tipps = [
     title: 'Geduld lernen',
     content: 'Der Markt schwankt. Wer geduldig bleibt und nicht in Panik verkauft, wird langfristig belohnt.',
   },
-  {
-    id: 7,
-    title: 'Dividenden bevorzugen',
-    content: 'Aktien mit Dividende bringen selbst bei sinkendem Kurs regelmäßige Einnahmen.',
-  },
-  {
-    id: 8,
-    title: 'Compound Effect nutzen',
-    content: 'Zinseszins wirkt über viele Jahre – bleib investiert und lass dein Kapital arbeiten.',
-  },
+
   {
     id: 10,
     title: 'Indexfonds nutzen',
@@ -53,27 +44,27 @@ const tipps = [
   {
     id: 11,
     title: 'Nicht auf Kredit investieren',
-    content: 'Nutze niemals geliehenes Geld zum Investieren – das Risiko ist zu hoch.',
+    content: 'Nutze niemals geliehenes Geld zum Investieren  das Risiko ist zu hoch.',
   },
   {
     id: 12,
     title: 'Investitionen beobachten',
-    content: 'Behalte deine Anlagen regelmäßig im Blick, ohne panisch zu reagieren.',
+    content: 'Behalte deine Anlagen regelmässig im Blick, ohne panisch zu reagieren.',
   },
   {
     id: 13,
     title: 'Mit Aktien Eigentum kaufen',
-    content: 'Aktien sind Unternehmensanteile – du beteiligst dich an echten Firmen, nicht an Spekulation.',
+    content: 'Aktien sind Unternehmensanteile du beteiligst dich an echten Firmen, nicht an Spekulation.',
   },
   {
     id: 14,
     title: 'Eigenen Stil finden',
-    content: 'Finde heraus, ob du eher sicherheitsorientiert oder risikofreudig bist – und investiere entsprechend.',
+    content: 'Finde heraus, ob du eher sicherheitsorientiert oder risikofreudig bist  und investiere entsprechend.',
   },
   {
     id: 15,
     title: 'Vermeide Timing-Versuche',
-    content: 'Niemand weiß, wann ein Tief oder Hoch kommt – bleib kontinuierlich investiert.',
+    content: 'Niemand weiss, wann ein Tief oder Hoch kommt, bleib kontinuierlich investiert.',
   },
   {
     id: 16,
@@ -88,22 +79,13 @@ const tipps = [
   {
     id: 18,
     title: 'Gold als Beimischung',
-    content: 'Halte 5–10 % deines Vermögens in Gold zur Absicherung gegen Krisen.',
+    content: 'Halte 5 bis 10 % deines Vermögens in Gold zur Absicherung gegen Krisen.',
   },
-  {
-    id: 19,
-    title: 'Eigenverantwortung übernehmen',
-    content: 'Lerne über Geld, Finanzen und Märkte – verlasse dich nicht blind auf Berater.',
-  },
-  {
-    id: 20,
-    title: 'Nachhaltig investieren',
-    content: 'Berücksichtige ethische, soziale und ökologische Kriterien bei deiner Auswahl.',
-  },
+
   {
     id: 21,
     title: 'Steuern berücksichtigen',
-    content: 'Beachte steuerliche Aspekte deiner Investments – sie beeinflussen deine Nettorendite.',
+    content: 'Beachte steuerliche Aspekte deiner Investments sie beeinflussen deine Nettorendite.',
   },
   {
     id: 22,
@@ -123,7 +105,7 @@ const tipps = [
   {
     id: 25,
     title: 'Buchführung führen',
-    content: 'Behalte Einnahmen, Ausgaben und Investitionen im Überblick – Kontrolle bringt Klarheit.',
+    content: 'Behalte Einnahmen, Ausgaben und Investitionen im Überblick Kontrolle bringt Klarheit.',
   },
 ];
 

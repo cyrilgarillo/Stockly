@@ -6,23 +6,41 @@ import './about.css';
 const steps = [
   {
     id: 1,
-    title: '1. Risikoprofil erstellen:',
+    title: (
+      <> 
+      1. <br /> Risikoprofil erstellen:
+            </>
+          ),
     description: 'Beantworte ein paar kurze Fragen zu deiner Risikobereitschaft und deinem Anlagehorizont.',
   },
   {
     id: 2,
-    title: '2. Aktienempfehlungen erhalten:',
-    description: 'Unser GPT-4-Modell generiert auf dein Profil zugeschnittene Anlagevorschläge – verständlich, individuell, aktuell.',
+    title: (
+      <> 
+      2. <br /> Aktienempfehlungen erhalten:
+            </>
+          ),
+    description: 'Unser GPT-4-Modell generiert auf dein Profil zugeschnittene Anlagevorschläge.',
   },
   {
     id: 3,
-    title: '3. Markt analysieren:',
-    description: 'Du erhältst einen schnellen Überblick über die aktuelle Marktlage – mit Indikatoren, Sentimentanalysen und Marktstimmung.',
+    title: (
+      <>
+        3. <br />Markt analysieren:
+      </>
+    ),
+    description:
+      'Du erhältst einen schnellen Überblick über die aktuelle Marktlage.',
   },
+  
   {
     id: 4,
-    title: '4. Verantwortungsvoll investieren:',
-    description: 'Unsere Tools und Rechentools helfen dir, Kaufkraftverluste zu verstehen und deine Strategie langfristig zu planen.',
+    title:(
+      <> 
+      4. <br /> Rendite-/Inflations Rechner: 
+      </>
+          ), 
+    description: 'Unsere Rechentools helfen dir, Kaufkraftverluste zu verstehen und Renditen zu berechnen.'
   },
 ];
 
@@ -32,7 +50,7 @@ export default function About() {
       <div className="container">
         <h2>Willkommen auf unserer Plattform Stockly für smarte Anlageentscheidungen!</h2>
         <p className="intro">
-          Unsere Anwendung unterstützt dich Schritt für Schritt – auch wenn du bisher keine Erfahrung im Investieren hast.
+          Unsere Anwendung unterstützt dich Schritt für Schritt auch wenn du bisher keine Erfahrung im Investieren hast.
         </p>
 
         <div className="steps-row">

@@ -15,32 +15,39 @@ export const navs = [
     },
     {
       id: 3,
-      name: 'Tipps',
-      target: 'tipps',
-      active: false,
-    },
-    {
-      id: 4,
       name: 'Riskprofile',
       target: 'riskprofile',
       active: false,
     },
     {
-      id: 9,
+      id: 4,
       name: 'Anlageempfehlung',
       target: 'anlageempfehlung',
       active: false,
     },
     {
-        id: 5,
+      id: 5,
+      name: 'Tipps',
+      target: 'tipps',
+      active: false,
+    },
+    {
+      id: 6,
+      name: 'Why-us',
+      target: 'why-us',
+      active: false,
+    },
+    {
+        id: 7,
         name: 'Marktstimmung',
         target: 'marktstimmung',
         active: false,
       },
+
       {
         id: 8,
-        name: 'Contact',
-        target: 'contact',
+        name: 'Kontakt',
+        target: 'kontakt',
         active: false,
       },
 
