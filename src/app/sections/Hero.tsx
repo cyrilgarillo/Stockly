@@ -23,9 +23,9 @@ export default function Hero() {
         <div className="row">
           <div className="col-lg-8">
             <h1>
-              Why you should invest <span>In Stocks</span>
+               Investieren war noch nie so <span>einfach</span>
             </h1>
-            <h2>Alles was du für den Einstieg wissen wolltest!</h2>
+            <h2>Erhalte individuelle Empfehlungen auf Basis deines Risikoprofils und der aktuellen Marktlage</h2>
             <div className="btns">
               <HeroBtn name="About" target="about" />
               <HeroBtn name="Tipps" target="tipps" />
@@ -46,3 +46,5 @@ export default function Hero() {
     </section>
   );
 }
+
+

@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(req: NextRequest) {
   try {
     // 🔧 Hier den aktuellen Wert manuell eintragen:
-    const numericValue = 66; // z. B. CNN-Wert vom 07.05.2025
+    const numericValue = 69; // z. B. CNN-Wert vom 20.05.2025
     let label = 'Unbekannt';
 
     if (numericValue < 25) label = 'Extreme Fear';
